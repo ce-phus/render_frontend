@@ -49,6 +49,13 @@ import {
     getAllOrdersReducer,
 } from './orderReducer'
 
+import {
+    postCommentCreateReducer,
+    postCommentDeleteReducer,
+    postCommentListReducer,
+    postCommentUpdateReducer,
+} from "./commentReducer"
+
 
 const allReducers = combineReducers({
     userLoginReducer,
@@ -74,6 +81,10 @@ const allReducers = combineReducers({
     initiatePaymentReducer,
     verifyPaymentReducer,
     getAllOrdersReducer,
+    postCommentCreateReducer,
+    postCommentDeleteReducer,
+    postCommentListReducer,
+    postCommentUpdateReducer,
     websocket:websocketReducer
 });
 

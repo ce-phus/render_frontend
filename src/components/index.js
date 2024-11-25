@@ -11,6 +11,7 @@ import Post from "./Post";
 import Popup from "./Popup";
 import ChatUser from "./ChatUser";
 import Cart from "./Cart";
+import CommentPost from "./CommentPost";
 
 export {
     Layout,
@@ -25,5 +26,6 @@ export {
     Post,
     Popup,
     ChatUser,
-    Cart
+    Cart,
+    CommentPost
 }
