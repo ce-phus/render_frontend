@@ -18,7 +18,7 @@ const MyProfile = () => {
     }, [dispatch])
 
     const renderPosts = () => {
-        if (!profile.posts || profile.posts.length === 0) {
+        if (!profile?.posts || profile?.posts.length === 0) {
             return <div className='dark:text-white text-2xl font-bold'>No Posts available</div>
         }
         return (
