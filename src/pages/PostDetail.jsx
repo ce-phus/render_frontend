@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Layout } from '../components'
+import { Layout, RatingForm } from '../components'
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { getPostDetails } from '../actions/postActions'
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
-import { FaCarTunnel } from 'react-icons/fa6'
-import { BsCart } from 'react-icons/bs'
 import { getProfile } from '../actions/profileActions'
 import { addToCart } from '../actions/cartActions'
 const PostDetail = () => {
@@ -200,8 +198,16 @@ const PostDetail = () => {
                                     </div>
                                 </div>
                             </div>
+                            {/* Rating Form */}
+                            <div className="mt-6">
+                                <h3 className="text-xl font-medium dark:text-white">Leave a Rating</h3>
+                                <RatingForm profileId={post.user_id} />
+                            </div>
                         </div>
+                        
                     </div>
+
+                    
                 </>
             )}
         </Layout>

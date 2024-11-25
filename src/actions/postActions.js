@@ -174,7 +174,7 @@ export const deletePost = (slug) => async (dispatch, getState) => {
         dispatch({ type: DELETE_POST_REQUEST });
 
         const {
-            userLogin: { userInfo },
+            userLoginReducer: { userInfo },
         } = getState();
 
         const config = {

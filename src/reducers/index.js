@@ -50,6 +50,10 @@ import {
 } from './orderReducer'
 
 import {
+    ratingReducer
+} from "./ratingReducer"
+
+import {
     postCommentCreateReducer,
     postCommentDeleteReducer,
     postCommentListReducer,
@@ -85,6 +89,7 @@ const allReducers = combineReducers({
     postCommentDeleteReducer,
     postCommentListReducer,
     postCommentUpdateReducer,
+    ratingReducer,
     websocket:websocketReducer
 });
 

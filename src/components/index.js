@@ -12,6 +12,7 @@ import Popup from "./Popup";
 import ChatUser from "./ChatUser";
 import Cart from "./Cart";
 import CommentPost from "./CommentPost";
+import RatingForm from "./RatingForm";
 
 export {
     Layout,
@@ -27,5 +28,6 @@ export {
     Popup,
     ChatUser,
     Cart,
-    CommentPost
+    CommentPost,
+    RatingForm
 }
