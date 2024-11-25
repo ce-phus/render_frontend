@@ -79,7 +79,7 @@ const Chat = () => {
   useEffect(() => {
     if (selectedUser) {
       const wsProtocol = window.location.protocol === "https:" ? "wss" : "ws";
-      const wsUrl = `${wsProtocol}://${import.meta.env.VITE_API_BASE_URL_DEPLOY.replace(/^https?:\/\//, "")}/ws/chat/${selectedUser.id}/?token=${userInfo?.access}`;
+      const wsUrl = `${wsProtocol}://${import.meta.env.VITE_API_BASE_URL_DEPLOY?.replace(/^https?:\/\//, "")}/ws/chat/${selectedUser?.id}/?token=${userInfo?.access}`;
       const ws = new WebSocket(wsUrl);
 
       ws.onopen = () => {
