@@ -74,7 +74,7 @@ const handleSearchSubmit = (e) => {
         </div>
         <DarkMode className="mr-"/>
         <div>
-        <Link to={profile ? `/me` : '#'}>
+        <Link to={profile ? `/me` : '/profile/edit'}>
             <img
               src={profile?.profile_photo || profile_default}
               className='w-10 h-10 mx-3 rounded-full object-cover'
