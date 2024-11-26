@@ -19,7 +19,7 @@ const RatingForm = ({ profileId }) => {
     };
 
     return (
-        <div className="max-w-lg mx-auto bg-white shadow-lg rounded-lg p-6 dark:bg-dark dark:text-white">
+        <div className="max-w-xl mx-auto bg-white shadow-lg rounded-lg p-6 dark:bg-dark dark:text-white">
             {loading && <p className=""><Spinner/></p>}
             {success && <p className="text-green-500 mb-4">Review submitted successfully!</p>}
             {error && <p className="text-red-500 mb-4">{error}</p>}

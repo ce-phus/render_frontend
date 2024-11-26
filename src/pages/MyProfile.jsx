@@ -12,6 +12,7 @@ const MyProfile = () => {
 
     const getProfileReducer = useSelector((state) => state.getProfileReducer);
     const { loading, error, profile } = getProfileReducer;
+    console.log("Profile: ", profile)
 
     useEffect(()=> {
         dispatch(getProfile())

@@ -198,11 +198,7 @@ const PostDetail = () => {
                                     </div>
                                 </div>
                             </div>
-                            {/* Rating Form */}
-                            <div className="mt-6">
-                                <h3 className="text-xl font-medium dark:text-white">Leave a Rating</h3>
-                                <RatingForm profileId={post.user_id} />
-                            </div>
+                            
                         </div>
                         
                     </div>

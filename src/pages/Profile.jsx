@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Layout, ProfilePosts } from '../components';
+import { Layout, ProfilePosts, RatingForm } from '../components';
 import { Link, useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { FaFacebook, FaInstagram, FaThreads, FaTwitter } from "react-icons/fa6";
 import { post } from '../assets';
 import { getUserProfile } from '../actions/profileActions';
+import ReactStars from "react-stars";
 
 const Profile = () => {
     const dispatch = useDispatch();
@@ -40,6 +41,28 @@ const Profile = () => {
             </div>
         )
     }
+    const renderReviews = () => {
+        if (!profile?.reviews || profile.reviews.length === 0) {
+            return <div className='dark:text-white text-lg'>No reviews available.</div>;
+        }
+        return profile.reviews.map((review) => (
+            <div key={review.id} className="bg-white dark:bg-dark p-4 rounded-md shadow mb-3">
+                <div className="flex items-center mb-2">
+                    <p className="font-medium text-lg dark:text-white">{review.rater}</p>
+                    <ReactStars
+                        count={5}
+                        value={review.rating}
+                        edit={false}
+                        size={24}
+                        color2={'#ffd700'}
+                        half={true}
+                    />
+                </div>
+                <p className="text-gray-700 dark:text-gray-300">{review.comment}</p>
+                <p className="text-sm text-gray-400 dark:text-gray-500">Reviewed on {new Date(review.created_at).toLocaleDateString()}</p>
+            </div>
+        ));
+    };
   return (
     <Layout>
         <div className='flex flex-col justify-center mx-5 md:mx-10'>
@@ -134,7 +157,14 @@ const Profile = () => {
                 <div className='mt-4'>
                     {currentView === 'posts' ? renderPosts(): '' }
                 </div>
-                
+                <div className="mt-6">
+                    <h3 className="text-xl font-medium dark:text-white">User Reviews</h3>
+                    {renderReviews()}
+                </div>
+                <div className="mt-6">
+                    <h3 className="text-xl font-medium dark:text-white">Leave a Rating</h3>
+                    <RatingForm profileId={profile.id} />
+                </div>
         </div>
    </Layout>
   )
