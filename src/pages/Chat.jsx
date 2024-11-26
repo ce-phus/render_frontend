@@ -79,7 +79,7 @@ const Chat = () => {
   useEffect(() => {
     if (selectedUser) {
       const wsProtocol = window.location.protocol === "https:" ? "wss" : "ws";
-      const wsUrl = `${wsProtocol}://${import.meta.env.VITE_API_BASE_URL_DEPLOY?.replace(/^https?:\/\//, "")}/ws/chat/${selectedUser?.id}/?token=${userInfo?.access}`;
+      const wsUrl = `${wsProtocol}://${import.meta.env.VITE_API_URL?.replace(/^https?:\/\//, "")}/ws/chat/${selectedUser?.id}/?token=${userInfo?.access}`;
       const ws = new WebSocket(wsUrl);
 
       ws.onopen = () => {
@@ -350,7 +350,7 @@ const Chat = () => {
       </div>
 
       {/* Main Chat Area */}
-      <div className="flex-1">
+      <div className="flex-1 dark:bg-dark">
         <div className=" mx-3 mt-2">
           {selectedUser ? (
             <>
@@ -377,7 +377,7 @@ const Chat = () => {
           )
           : 
           <>
-          <div className="flex flex-col space-y-2 items-center justify-center h-screen">
+          <div className="flex flex-col space-y-2 items-center justify-center h-screen dark:bg-dark">
           <img
           src={chat}
           className="w-[150px] h-[150px] contain"/>
@@ -392,7 +392,7 @@ const Chat = () => {
           </>}
         </div>
 
-        <div className="h-screen overflow-y-auto p-4 pb-36">
+        <div className="h-screen overflow-y-auto p-4 pb-36 dark:bg-dark">
         {messages.map((msg, index) => (
           <div key={index} className={`flex mb-4 ${msg.userId === loggedInUserId ? 'justify-end' : 'justify-start'}`}>
               <div className={`max-w-96 p-3 rounded-lg ${msg.userId === loggedInUserId ? 'bg-blue-500 text-white' : 'bg-gray-300 text-gray-700'}`}>

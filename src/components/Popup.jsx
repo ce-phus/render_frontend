@@ -49,10 +49,21 @@ const Popup = ({ isPopupOpen, togglePopup }) => {
           formData.append('model', model.trim());
           formData.append('postal_code', postal_code.trim());
           formData.append('street_address', street_address.trim());
-          formData.append('price', parseFloat(price));
+  
+          const parsedPrice = parseFloat(price);
+          if (isNaN(parsedPrice)) {
+              alert("Please enter a valid price.");
+              return;
+          }
+          formData.append('price', parsedPrice);
+  
+          if (!advert_type) {
+              alert("Please select an advert type.");
+              return;
+          }
           formData.append('advert_type', advert_type.trim());
           formData.append('cover_photo', cover_photo);
-          
+  
           photos.forEach((photo) => {
               formData.append('photos', photo);
           });
@@ -67,6 +78,7 @@ const Popup = ({ isPopupOpen, togglePopup }) => {
           console.error('User must be authenticated to create a post.');
       }
   };
+  
   
   
     if (!isPopupOpen) return null;
